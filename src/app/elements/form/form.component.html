@@ -1,0 +1,17 @@
+<h1>Form</h1>
+
+<!-- Se um elemento dentro do Form estiver inválido no formulário (form) estará inválido como o todo. -->
+<form #meuForm="ngForm"> <!-- Instanciando o ngForm para ter acesso ao FormGroup. -->
+  <input
+    ngModel
+    name="nome"
+    required
+  />
+
+  <p>Válido: {{ meuForm.valid }}</p>
+  <p>Tocado: {{ meuForm.touched }}</p>
+  <p>Sujo: {{ meuForm.dirty }}</p>
+</form>
+
+
+

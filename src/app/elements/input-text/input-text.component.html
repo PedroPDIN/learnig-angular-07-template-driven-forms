@@ -1,0 +1,40 @@
+<h2>Input Text:</h2>
+
+<!--método abaixo com logica de alteração de classe (utilizando o ngClass), porém de forma tradicional, porém não indicado pois iria adicionar o ngClass em "todos" os elemento, ou seja repetindo-o-->
+<!-- Nome:
+<input
+  ngModel
+  #meuInputFormControl="ngModel"
+  [ngClass]="{
+    'valid': meuInputFormControl.valid && meuInputFormControl.touched,
+    'invalid': meuInputFormControl.invalid && meuInputFormControl.touched
+  }"
+  minlength="5"
+  required
+> -->
+
+Nome:
+<input
+  ngModel
+  #meuInputFormControl="ngModel"
+  minlength="5"
+  required
+>
+
+<div *ngIf="meuInputFormControl.invalid && meuInputFormControl.touched"> <!-- há possibilidade de capturar o erro especifico com base da validação aplicada (required e minLength) -->
+  <b *ngIf="meuInputFormControl.hasError('required')">
+    O campo "Nome" é obrigatório.
+  </b>
+
+  <b *ngIf="meuInputFormControl.hasError('minlength')">
+    O campo deve ter no mínimo 5 caracteres.
+  </b>
+</div>
+
+<p>Válido: {{ meuInputFormControl.valid }}</p>
+<p>Clicado: {{ meuInputFormControl.touched }}</p>
+<p>Possui Valor: {{ meuInputFormControl.dirty }}</p>
+
+<h2>Referenciando FormControl na classe</h2>
+
+<button (click)="eventClick()">Enviar</button>

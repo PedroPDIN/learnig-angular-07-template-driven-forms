@@ -1,0 +1,81 @@
+<h1>Radio-Button:</h1>
+
+<h3>Validação (required) fora de fomulário "form": </h3>
+
+<input
+  type="radio"
+  id="html"
+  name="group1"
+  value="html"
+  [(ngModel)]="radioSelected"
+  required
+>
+<label for="html">HTML</label>
+
+<input
+  type="radio"
+  id="css"
+  name="group1"
+  value="css"
+  [(ngModel)]="radioSelected"
+  required
+>
+<label for="css">CSS</label>
+
+<input
+  type="radio"
+  id="javascript"
+  name="group1"
+  value="javascript"
+  [(ngModel)]="radioSelected"
+  required
+>
+<label for="javascript">JavaScript</label>
+
+<p>Radio Selecionado: {{ radioSelected }}</p>
+
+<button type="button" [disabled]="radioSelected === undefined || radioSelected === null || radioSelected === ''">
+  Enviar
+</button>
+
+<br>
+
+<h3>Validação (required) dentro do fomulário "form": </h3>
+
+<form ngForm #f="ngForm">
+  <input
+    type="radio"
+    id="html"
+    name="group2"
+    value="html"
+    [(ngModel)]="radioSelected2"
+    required
+  >
+  <label for="html">HTML</label>
+
+  <input
+    type="radio"
+    id="css"
+    name="group2"
+    value="css"
+    [(ngModel)]="radioSelected2"
+    required
+  >
+  <label for="css">CSS</label>
+
+  <input
+    type="radio"
+    id="javascript"
+    name="group2"
+    value="javascript"
+    [(ngModel)]="radioSelected2"
+    required
+  >
+  <label for="javascript">JavaScript</label>
+
+  <p>Radio Selecionado: {{ radioSelected2 }}</p>
+
+  <button type="button" [disabled]="f.invalid">
+    Enviar
+  </button>
+</form>

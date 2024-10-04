@@ -1,0 +1,21 @@
+<h1>Custom Validator (Validação Personalizada)</h1>
+
+<h2>Exemplo 1 - Primeira Validação Customizada</h2>
+
+<form #meuForm="ngForm">
+  <input
+    type="text"
+    name="nome"
+    ngModel
+    #nomeControl="ngModel"
+    placeholder="Digite o nome"
+    appInvalidTextValidator
+    required
+  >
+
+  <div *ngIf="nomeControl && nomeControl.invalid && (nomeControl.touched || nomeControl.dirty)">
+    <b *ngIf="nomeControl.hasError('invalidText')">Esse nome não é bem falado nesse site meu amigo(a)!</b>
+  </div>
+
+  <br><br><br>
+</form>

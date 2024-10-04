@@ -1,0 +1,35 @@
+<h1>Form com Submit</h1>
+
+<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" [ngFormOptions]="{ updateOn: 'change' }"> <!--ngFormOptions = método de sincronização performático para o formulário. Nesse exemplo com base do validação "required" do input. Só vai ser verificado se for validado ou não quando houve/clicar no botão submit no form (também há outras opções). -->
+  <input name="nome" type="text" [(ngModel)]="inputText" required [ngModelOptions]="{ updateOn: 'change'}"/>
+
+  <br>
+
+  <textarea name="descricao" [(ngModel)]="textarea"></textarea>
+
+  <br>
+
+  <select name="pais" [(ngModel)]="select">
+    <option value="1">Brasil</option>
+    <option value="2">Espanha</option>
+  </select>
+
+  <br>
+
+  <input type="radio" name="groupStatus" id="ativo" value="1" [(ngModel)]="radioButton" />
+  <label for="ativo">Ativo</label>
+
+  <input type="radio" name="groupStatus" id="inativo" value="2" [(ngModel)]="radioButton" />
+  <label for="inativo">Inativo</label>
+
+  <br>
+
+  <input type="checkbox" id="condicao" name="condicao" [(ngModel)]="checkbox" />
+  <label for="condicao">Declaração de Termos</label>
+
+  <br>
+
+  <button>Enviar</button>
+  <button type="reset" (click)="onReset(meuForm)">Limpar pelo "type reset"</button>
+  <button type="button" (click)="onReset2(meuForm)">Limpar manualmente</button>
+</form>

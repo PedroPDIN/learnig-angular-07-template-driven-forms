@@ -1,0 +1,63 @@
+<h1>Checkbox: </h1>
+
+<input
+  type="checkbox"
+  id="isActive"
+  name="isActive"
+  [(ngModel)]="isActive"
+  #checkboxFormControl="ngModel"
+  required
+>
+<label for="isActive">Ativo</label>
+
+<!-- <input
+  type="checkbox"
+  id="isActive"
+  name="isActive"
+  [ngModel]="isActive"
+  (ngModelChange)="onChange($event)"
+  #checkboxFormControl="ngModel"
+  required
+>
+<label for="isActive">Ativo</label> -->
+
+
+<p>Usuário Ativo: {{ isActive }}</p>
+<p>Válido: {{ checkboxFormControl.valid }}</p> <!--Só vai ser valido se o elemento for/tiver o check marcado-->
+<p>Clicado: {{ checkboxFormControl.touched }}</p>
+<p>Possui Valor: {{ checkboxFormControl.dirty }}</p>
+
+<h3>Exemplo de checkbox dentro de um fomulário (form):</h3>
+
+<form ngForm #f="ngForm">
+  <input
+    type="checkbox"
+    id="isActiveForm"
+    name="isActiveForm"
+    [ngModel]="isActiveForm"
+    (ngModelChange)="onChange2($event)"
+    #checkboxFormControl2="ngModel"
+    required
+  >
+  <label for="isActiveForm">Ativo</label> <!-- CheckBox obrigatório, que possui validação -->
+
+  <input
+    type="checkbox"
+    id="isApproved"
+    name="isApproved"
+    [(ngModel)]="isApproved"
+    #checkboxFormControl2="ngModel"
+  >
+  <label for="isApproved">Aprovado</label> <!-- CheckBox opcional, que não possui validação, com isso, tem um comportamento diferente s-->
+
+
+  <p>Usuário Ativo: {{ isActiveForm }}</p>
+  <p>Usuário Aprovado: {{ isApproved }}</p>
+
+  <button [disabled]="f.invalid">Enviar</button>
+
+
+  <p>Válido: {{ checkboxFormControl2.valid }}</p> <!-- Só vai ser valido se o elemento for/tiver o check marcado -->
+  <p>Clicado: {{ checkboxFormControl2.touched }}</p>
+  <p>Possui Valor: {{ checkboxFormControl2.dirty }}</p>
+</form>

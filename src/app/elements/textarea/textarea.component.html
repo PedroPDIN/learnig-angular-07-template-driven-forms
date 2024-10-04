@@ -1,0 +1,36 @@
+<h2>Textarea:</h2>
+
+<!-- <textarea
+  ngModel
+  #meuTextAreaFormControl="ngModel"
+  minlength="5"
+  required
+></textarea> -->
+
+<textarea
+  [(ngModel)]="text"
+  #meuTextAreaFormControl="ngModel"
+  minlength="5"
+  required
+></textarea>
+
+<!-- <textarea
+  [ngModel]="text"
+  (ngModelChange)="onChange($event)"
+  #meuTextAreaFormControl="ngModel"
+  minlength="5"
+  required
+></textarea> -->
+
+<br>
+
+<p>Válido: {{ meuTextAreaFormControl.valid }}</p>
+<p>Clicado: {{ meuTextAreaFormControl.touched }}</p>
+<p>Possui Valor: {{ meuTextAreaFormControl.dirty }}</p>
+
+<button
+  (click)="onClick()"
+  [disabled]="meuTextAreaFormControl.invalid"
+>
+  Enviar Mensagem
+</button>

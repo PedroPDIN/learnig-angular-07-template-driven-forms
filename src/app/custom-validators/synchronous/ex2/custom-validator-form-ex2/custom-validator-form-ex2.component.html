@@ -1,0 +1,18 @@
+<h2>Exemplo 1 - Primeira Validação Customizada com Múltiplos Campos</h2>
+
+<form #meuForm="ngForm" appDepartamentQuantityValidator>
+  <label for="">Departamento</label>
+  <select name="departamento" id="departamento" ngModel>
+    <option value="IT">Tecnologia</option>
+    <option value="HR">Recursos Humanos</option>
+  </select>
+
+  <input type="text" name="quantidade" id="quantidade" ngModel placeholder="Quantidade de pessoas" />
+
+  <div *ngIf="meuForm && meuForm.invalid && meuForm.dirty">
+    <p *ngIf="meuForm.hasError('invalidITQuantity')">O departamento de Tecnologia deve ter no máximo 10 pessoas.</p>
+    <p *ngIf="meuForm.hasError('invalidHRQuantity')">O departamento de Recursos Humanos deve ter no máximo 20 pessoas.</p>
+  </div>
+</form>
+
+<br><br><br>
